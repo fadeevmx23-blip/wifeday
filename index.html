@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03.10.2026 · Только для тебя ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root{
+ --cream:#fff8ef;--paper:#fffdf9;--ink:#35251f;--muted:#826b61;
+ --red:#a94243;--coral:#d66c62;--gold:#d7aa63;--green:#657b61;
+ --shadow:0 24px 70px rgba(79,45,33,.13)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;scroll-behavior:smooth}
+body{
+ color:var(--ink);font-family:Manrope,system-ui,sans-serif;background:
+ radial-gradient(circle at 15% 15%,rgba(215,170,99,.13),transparent 26%),
+ radial-gradient(circle at 85% 25%,rgba(214,108,98,.10),transparent 25%),var(--cream)
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;
+ background-image:radial-gradient(rgba(53,37,31,.18) .7px,transparent .7px);background-size:9px 9px}
+button{font:inherit}
+.nav{position:fixed;z-index:100;top:0;left:0;right:0;padding:18px 5%;
+ display:flex;justify-content:space-between;align-items:center;
+ background:linear-gradient(to bottom,rgba(255,248,239,.96),rgba(255,248,239,0));
+ backdrop-filter:blur(5px)}
+.logo{font:600 25px "Cormorant Garamond",serif}
+.date{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.page{display:none;min-height:100vh;animation:in .65s ease}
+.page.active{display:block}
+@keyframes in{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.wrap{width:min(1080px,92%);margin:auto}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:110px 0 70px;position:relative;overflow:hidden}
+.hero-inner{position:relative;z-index:2}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.3em;color:var(--red);font-weight:700}
+h1,h2,h3,.serif{font-family:"Cormorant Garamond",serif}
+h1{font-size:clamp(82px,14vw,155px);line-height:.72;margin:28px 0;font-weight:500;letter-spacing:-.05em}
+h2{font-size:clamp(52px,8vw,95px);line-height:.86;margin:16px 0;font-weight:500}
+h3{font-size:32px;margin:8px 0}
+.lead{max-width:680px;margin:0 auto;color:var(--muted);font-size:15px;line-height:1.9}
+.btn{
+ display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:30px;
+ padding:14px 24px;border:1px solid rgba(169,66,67,.25);border-radius:999px;
+ background:#fffaf4;color:var(--red);font-weight:700;font-size:13px;cursor:pointer;
+ box-shadow:0 8px 25px rgba(79,45,33,.06);transition:.25s
+}
+.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.float{position:absolute;border-radius:50%;pointer-events:none}
+.f1{width:340px;height:340px;left:-130px;top:15%;background:rgba(215,170,99,.12)}
+.f2{width:280px;height:280px;right:-90px;bottom:12%;background:rgba(169,66,67,.09)}
+.petal{position:absolute;font-size:27px;opacity:.65;animation:drift 7s ease-in-out infinite}
+.p1{left:12%;top:25%}.p2{right:13%;top:34%;animation-delay:1s}
+.p3{left:19%;bottom:17%;animation-delay:2s}.p4{right:22%;bottom:22%;animation-delay:3s}
+@keyframes drift{50%{transform:translate(12px,18px) rotate(12deg)}}
+
+.section{padding:95px 0}
+.center{text-align:center}
+.page-top{padding:155px 0 70px}
+.back{border:0;background:none;color:var(--muted);cursor:pointer;padding:0;margin-bottom:28px;font-size:13px}
+.big{font:500 clamp(90px,16vw,175px) "Cormorant Garamond";color:rgba(169,66,67,.1);line-height:.5}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:rgba(255,253,249,.82);border:1px solid rgba(130,107,97,.14);
+ border-radius:28px;padding:30px;box-shadow:var(--shadow);transition:.3s}
+.card:hover{transform:translateY(-6px)}
+.card p{color:var(--muted);font-size:14px;line-height:1.75}
+.emoji{font-size:40px}.num{font:45px "Cormorant Garamond";color:var(--gold)}
+.note{margin-top:30px;padding:32px;border-radius:28px;background:var(--green);color:var(--cream);line-height:1.9;position:relative;overflow:hidden}
+.note:after{content:"♡";position:absolute;right:22px;bottom:-30px;font:130px "Cormorant Garamond";opacity:.1}
+.route{display:flex;align-items:center;gap:10px;overflow:auto;padding:15px 0 40px}
+.route-item{min-width:110px;text-align:center}.route-line{height:1px;background:rgba(169,66,67,.22);flex:1}
+.circle{width:52px;height:52px;border-radius:50%;margin:auto;display:grid;place-items:center;background:#fff;border:1px solid rgba(169,66,67,.2)}
+.timeline{display:grid;grid-template-columns:80px 1fr;gap:22px;margin:27px 0}
+.time{font:27px "Cormorant Garamond";color:var(--red)}
+.timeline h3{margin:0}.timeline p{margin:5px 0}
+.quote{font:clamp(32px,5vw,58px)/1.02 "Cormorant Garamond";text-align:center;max-width:850px;margin:50px auto}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.choice button{border:1px solid rgba(169,66,67,.18);background:#fffaf4;border-radius:24px;padding:28px;
+ color:var(--ink);font-weight:700;cursor:pointer;transition:.2s}
+.choice button:hover{transform:scale(1.02);box-shadow:var(--shadow)}
+.reveal{display:none;margin-top:20px;padding:22px;border-radius:20px;background:#f1e7d8;line-height:1.7}
+.map{height:300px;border-radius:30px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+ background:linear-gradient(125deg,rgba(101,123,97,.82),rgba(230,193,132,.55)),
+ repeating-linear-gradient(30deg,transparent 0 20px,rgba(255,255,255,.18) 21px 22px)}
+.pin{position:absolute;font-size:28px;transform:translate(-50%,-50%)}
+.l{position:absolute;background:rgba(255,253,249,.92);padding:7px 10px;border-radius:12px;font-size:11px}
+.footer{padding:60px 0 80px;text-align:center;color:var(--muted);font-size:11px;letter-spacing:.08em}
+.final-message{display:none;max-width:650px;margin:25px auto 0;padding:28px;border-radius:25px;background:#fffaf4;line-height:1.9;box-shadow:var(--shadow)}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.choice{grid-template-columns:1fr}.date{display:none}.section{padding:70px 0}.timeline{grid-template-columns:55px 1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+ <button class="logo" style="border:0;background:none;cursor:pointer;color:inherit" onclick="go('home')">для моей любимой ♡</button>
+ <span class="date">03 · 10 · 2026 · Vietnam</span>
+</nav>
+
+<!-- 1. HOME -->
+<section id="home" class="page active">
+ <main class="hero">
+  <div class="float f1"></div><div class="float f2"></div>
+  <div class="petal p1">❀</div><div class="petal p2">✦</div><div class="petal p3">♡</div><div class="petal p4">❀</div>
+  <div class="hero-inner">
+   <div class="kicker">private invitation · only for you</div>
+   <h1>03<br><span style="font-size:.55em">октября</span></h1>
+   <p class="lead">Любимая жена, приглашаю тебя на романтик. <br> Только ты, я и маленькое путешествие.</p>
+   <button class="btn" onclick="go('story')">Открыть приглашение →</button>
+  </div>
+ </main>
+ <section class="section"><div class="wrap center">
+  <div class="kicker">one day · sex moments</div>
+  <h2>Наше свидание.<br>Женовий день</h2>
+  <p class="lead">Я очень люблю тебя и хочу сделать этот день максимально прекрасным!</p>
+ </div></section>
+</section>
+
+<!-- 2. STORY -->
+<section id="story" class="page">
+ <div class="wrap page-top">
+  <button class="back" onclick="go('home')">← назад</button>
+  <div class="big">01</div><div class="kicker">the invitation</div>
+  <h2>Сегодня мы<br>жестко кайфуем.</h2>
+  <p class="lead" style="margin:20px 0 0">Солнышко, это твой день. Твоя задача — улыбаться, радоваться и быть счастливой</p>
+ </div>
+ <div class="section"><div class="wrap">
+  <div class="grid">
+   <article class="card"><div class="emoji">🥐</div><div class="num">01</div><h3>Завтрак в постель</h3><p>Круассан, матча и утренние объятия</p></article>
+   <article class="card"><div class="emoji">🦶</div><div class="num">02</div><h3>Массаж ножек</h3><p>Сегодня ты заслуживаешь сервиса уровня «самая любимая жена во Вьетнаме».</p></article>
+   <article class="card"><div class="emoji">🏨</div><div class="num">03</div><h3>Sex</h3><p>Утреннее ощущение прилива любви, когда я в тебе</p></article>
+   <article class="card"><div class="emoji">🌿</div><div class="num">04</div><h3>Поездка на ферму</h3><p>Уезжаем туда, где больше зелени, воздуха и места для фотографий.</p></article>
+   <article class="card"><div class="emoji">🌮</div><div class="num">05</div><h3>Мексиканский ужин</h3><p>Тако, буррито, кукурузка. Все как ты любишь</p></article>
+   <article class="card"><div class="emoji">🍺❄️</div><div class="num">06</div><h3>Пиво и снеки</h3><p>Финальная часть программы. Попьем пива с сухариками и посмотрим "Бумажный дом"</p></article>
+  </div>
+  <div class="center"><button class="btn" onclick="go('day')">Посмотреть маршрут →</button></div>
+ </div></div>
+</section>
+
+<!-- 3. DAY -->
+<section id="day" class="page">
+ <div class="wrap page-top">
+  <button class="back" onclick="go('story')">← к программе</button>
+  <div class="kicker">the day</div><h2>Наш маршрут</h2>
+  <p class="lead" style="margin:20px 0 0">Интерактивная карта нашего дня</p>
+ </div>
+ <div class="section"><div class="wrap">
+  <div class="route">
+   <div class="route-item"><div class="circle">🥐</div><small>Утро</small></div><div class="route-line"></div>
+   <div class="route-item"><div class="circle">🦶</div><small>Массаж ножек</small></div><div class="route-line"></div>
+   <div class="route-item"><div class="circle">🏨</div><small>Sex</small></div><div class="route-line"></div>
+   <div class="route-item"><div class="circle">🌿</div><small>Природа</small></div><div class="route-line"></div>
+   <div class="route-item"><div class="circle">🌮</div><small>Ужин</small></div><div class="route-line"></div>
+   <div class="route-item"><div class="circle">🍺</div><small>Финал</small></div>
+  </div>
+  <div class="timeline"><div class="time">01</div><div><h3>Проснуться</h3><p class="lead" style="margin:0">Завтрак в постель → кофе → обнимашки.</p></div></div>
+  <div class="timeline"><div class="time">02</div><div><h3>Порадовать ножки</h3><p class="lead" style="margin:0">Массаж ножек. По 7 минут</p></div></div>
+  <div class="timeline"><div class="time">03</div><div><h3>Sex</h3><p class="lead" style="margin:0">Страстная часть нашего отличного дня</p></div></div>
+  <div class="timeline"><div class="time">04</div><div><h3>Ферма</h3><p class="lead" style="margin:0">Поездка на ферму. Ветер, байк и ощущение маленького побега из города.</p></div></div>
+  <div class="timeline"><div class="time">05</div><div><h3>Mexico</h3><p class="lead" style="margin:0">Мексиканский ресторан. Заказываем всякие вкусняшки</p></div></div>
+  <div class="timeline"><div class="time">06</div><div><h3>Пиво и снеки</h3><p class="lead" style="margin:0">Ледяной пивасик, сухарики, любимый сериал</p></div></div>
+  <div class="center"><button class="btn" onclick="go('rex')">Продолжить →</button></div>
+ </div></div>
+</section>
+
+<!-- 4. REX -->
+<section id="rex" class="page">
+ <div class="wrap page-top">
+  <button class="back" onclick="go('day')">← маршрут</button>
+  <div class="kicker">chapter iii · Sex</div>
+  <h2>Очень много<br>страсти</h2>
+  <p class="lead" style="margin:20px 0 0">Сладкие стоны, которые вырываются, когда я вхожу в тебя - самая приятная награда</p>
+ </div>
+ <div class="section"><div class="wrap">
+  <div class="card" style="padding:45px">
+   <div class="kicker">our little rule</div>
+   <div class="quote">«Сегодня мы никуда не торопимся. Прекрасно проводим субботнее утро»</div>
+   <div class="center"><button class="btn" onclick="reveal('rexNote')">Нажми, если готова ♡</button></div>
+   <div id="rexNote" class="reveal center">Пункт назначения: ты. Всё остальное — приятные ощущения</div>
+  </div>
+  <div class="center"><button class="btn" onclick="go('farm')">Дальше — на ферму →</button></div>
+ </div></div>
+</section>
+
+<!-- 5. FARM -->
+<section id="farm" class="page">
+ <div class="wrap page-top">
+  <button class="back" onclick="go('rex')">← назад</button>
+  <div class="kicker">chapter iv · escape</div>
+  <h2>Потом едем<br>на ферму.</h2>
+  <p class="lead" style="margin:20px 0 0">Ферма — место, где можно просто расслабиться. И где я, скорее всего, опять буду фотографировать тебя каждые пять минут.</p>
+ </div>
+ <div class="section"><div class="wrap">
+  <div class="map">
+   <span class="pin" style="left:17%;top:64%">♡</span>
+   <span class="pin" style="left:39%;top:42%">📍</span>
+   <span class="pin" style="left:61%;top:55%">🌿</span>
+   <span class="pin" style="left:81%;top:30%">♥</span>
+   <span class="l" style="left:9%;top:70%">мы</span><span class="l" style="left:33%;top:48%">дорога</span>
+   <span class="l" style="left:55%;top:61%">ферма</span><span class="l" style="left:74%;top:36%">счастье</span>
+  </div>
+  <div class="note"><b>Mission:</b> найти самое красивое место, сделать минимум одну фотографию, которую захочется поставить на заставку, покушать что-то вкусное</div>
+  <div class="center"><button class="btn" onclick="go('dinner')">Следующая глава →</button></div>
+ </div></div>
+</section>
+
+<!-- 6. DINNER -->
+<section id="dinner" class="page">
+ <div class="wrap page-top">
+  <button class="back" onclick="go('farm')">← назад</button>
+  <div class="kicker">chapter v · dinner</div>
+  <h2>Тепло, остро<br>и очень вкусно.</h2>
+  <p class="lead" style="margin:20px 0 0">Мексиканский ресторан — потому что романтика бывает не только в свечах. Иногда она в тако и кукурузках</p>
+ </div>
+ <div class="section"><div class="wrap">
+  <div class="choice">
+   <button onclick="reveal('taco')">🌮 Выбираю тако</button>
+   <button onclick="reveal('spicy')">🌶️ Выбираю кукурузку</button>
+  </div>
+  <div id="taco" class="reveal">Правильный выбор. Но я всё равно попробую кусочек твоего.</div>
+  <div id="spicy" class="reveal">Храбро. Ведь на следующий день придется много какать</div>
+  <div class="quote">А на десерт берем мороженку</div>
+  <div class="center"><button class="btn" onclick="go('final')">Финальная глава →</button></div>
+ </div></div>
+</section>
+
+<!-- 7. FINAL -->
+<section id="final" class="page">
+ <main class="hero">
+  <div class="float f1"></div><div class="float f2"></div>
+  <div class="petal p1">♡</div><div class="petal p2">✦</div><div class="petal p3">❀</div><div class="petal p4">♥</div>
+  <div class="hero-inner">
+   <div class="kicker">chapter vi · the end</div>
+   <h2 style="font-size:clamp(58px,9vw,110px)">Пиво.<br>Снеки<br>Бумажный дом</h2>
+   <p class="lead">Смотрим фильм, пьем пивасик, кушаем, наслаждаемся друг другом</p>
+   <button class="btn" onclick="reveal('finalMessage')">Нажми на финал ♡</button>
+   <div id="finalMessage" class="final-message"><b>03.10.2026</b><br><br>
+    Спасибо, что ты моя жена.<br>Я бы снова выбрал тебя — и для этого дня, и для всех следующих. ❤️
+   </div>
+   <br><button class="btn" onclick="go('home')" style="margin-top:18px">Начать сначала ↺</button>
+  </div>
+ </main>
+</section>
+
+<div class="footer">03.10.2026 · один день, который мы оставим только себе ♡</div>
+
+<script>
+function go(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ const page=document.getElementById(id);
+ if(page){page.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+}
+function reveal(id){
+ const e=document.getElementById(id);
+ if(e)e.style.display=e.style.display==='block'?'none':'block';
+}
+</script>
+</body>
+</html>
